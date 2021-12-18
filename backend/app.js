@@ -40,8 +40,8 @@ app.use('/address', addressRouter);
 app.use('/calculateDistance', calculateDistanceRouter)
 app.use('/friend', friendRouter);
 
-mongoose.connect('mongodb://127.0.0.1:27017/FriendsGetter', { useNewUrlParser: true }).then(() => {console.log("Connected to MongoDB...")}).catch(e => console.log(e));
-someFn();
+mongoose.connect(process.env.mongodbConnectionString, { useNewUrlParser: true }).then(() => {console.log("Connected to MongoDB...")}).catch(e => console.log(e));
+// someFn();
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
